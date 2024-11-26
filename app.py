@@ -1,31 +1,25 @@
 import streamlit as st
-
-st.title('🎈 App Name')
-
-st.write('Hello world!')
-
+import pandas as pd
 
 # Run the app with:
 # streamlit run app.py
 # The app will be available at http://localhost:8501
 
-# st.title('CSV File Uploader')
+# Load the data
+data = pd.read_csv('data/sports-political-donations.csv')
 
-# # File uploader
-# uploaded_file = st.file_uploader("Choose a CSV file", type="csv")
+# Sidebar widgets
+st.sidebar.header('Filter Options')
+min_amount = st.sidebar.slider('Minimum Donation Amount', 0, 1000000, 0)
+max_amount = st.sidebar.slider('Maximum Donation Amount', 0, 1000000, 1000000)
+party = st.sidebar.selectbox('Party', ['All', 'Democrat', 'Republican', 'Bipartisan'])
 
-# if uploaded_file is not None:
-#     # Read the CSV file
-#     df = pd.read_csv(uploaded_file)
-    
-#     # Display the dataframe
-#     st.write("Dataframe:")
-#     st.dataframe(df)
-    
-#     # Show basic information
-#     st.write("Basic Information:")
-#     st.write(df.info())
-    
-#     # Show summary statistics
-#     st.write("Summary Statistics:")
-#     st.write(df.describe())
+# Filter data based on user input
+filtered_data = data[(data['Amount'].str.replace('[$,]', '', regex=True).astype(float) >= min_amount) &
+                     (data['Amount'].str.replace('[$,]', '', regex=True).astype(float) <= max_amount)]
+
+if party != 'All':
+    filtered_data = filtered_data[filtered_data['Party'] == party]
+
+# Display the filtered data
+st.write(filtered_data)
