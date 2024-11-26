@@ -1,25 +1,24 @@
-# 📦 Streamlit App Starter Kit 
-```
-⬆️ (Replace above with your app's name)
-```
+# Streamlit 5by5 Demo
 
-Description of the app ...
+This is a demo repo for showcasing the capabilities of the streamlit framework for displaying client's dataset insights visually.
 
-## Demo App
+## Data Science Introduction
 
-[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://app-starter-kit.streamlit.app/)
+This is an exploratory data science & visualization streamlit web app.
 
-## GitHub Codespaces
+For this app to be successful, it must be able to:
 
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/streamlit/app-starter-kit?quickstart=1)
+1. Receive .csv files
+2. Seed a database with the data either by models or other process
+3. Process & Package Data for Visualization
+4. Export data to a client
+5. Act as a template for future data visualization projects
 
-## Section Heading
+## Technologies Utilized
 
-This is filler text, please replace this with text for this section.
+While this isn't an exhaustive list, here are the primary software techonologies used in this demo app:
 
-## Further Reading
-
-This is filler text, please replace this with a explanatory text about further relevant resources for this repo
-- Resource 1
-- Resource 2
-- Resource 3
+- Python
+- Pandas
+- NumPy
+- Streamlit
